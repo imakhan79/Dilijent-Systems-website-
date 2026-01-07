@@ -1,0 +1,8 @@
+{
+  "name": "Dilijent Systems Replica",
+  "description": "A high-fidelity replica of Dilijent Systems, specializing in AI-driven operational excellence and intelligent automation solutions.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
