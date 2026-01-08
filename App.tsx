@@ -26,8 +26,8 @@ const App: React.FC = () => {
         const element = document.getElementById(section.id);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Adjust for higher navbar
-          return rect.top <= 150 && rect.bottom >= 150;
+          // Adjust for two-tier navbar (80px top + 64px bottom)
+          return rect.top <= 160 && rect.bottom >= 160;
         }
         return false;
       });
@@ -43,7 +43,7 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-white relative selection:bg-ds-red selection:text-white">
       <Navbar activeSection={activeSection} />
       
-      <main className="pt-24">
+      <main className="pt-36 md:pt-[144px]">
         <section id="home">
           <Hero />
         </section>

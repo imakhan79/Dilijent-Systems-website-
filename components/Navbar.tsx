@@ -12,83 +12,139 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     { name: 'HOME', href: '#home' },
     { name: 'ABOUT', href: '#about' },
     { name: 'SERVICES', href: '#services', hasDropdown: true },
-    { name: 'BLOG', href: '#blog' },
+    { name: 'BLOG', href: '#solutions' },
     { name: 'FAQS', href: '#faqs' },
     { name: 'CONTACT US', href: '#contact' },
   ];
 
+  const Logo = () => (
+    <div className="flex items-center gap-1">
+      <div className="relative w-12 h-10 flex items-center justify-center">
+        <svg viewBox="0 0 140 120" className="w-full h-full drop-shadow-md">
+          <path 
+            d="M50,25 C25,25 25,95 50,95" 
+            fill="none" 
+            stroke="#E13D2D" 
+            strokeWidth="16" 
+            strokeLinecap="round" 
+          />
+          <path 
+            d="M75,30 L100,30 C110,30 110,48 100,48 L75,72 C65,72 65,90 75,90 L100,90" 
+            fill="none" 
+            stroke="#2B59C3" 
+            strokeWidth="16" 
+            strokeLinecap="round" 
+          />
+        </svg>
+      </div>
+      <div className="flex items-baseline">
+        <span className="text-[26px] font-black text-[#1A1A1A] tracking-tighter">Dilijent</span>
+        <span className="text-[26px] font-light text-[#1A1A1A] tracking-tighter">Systems</span>
+      </div>
+    </div>
+  );
+
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md h-20 md:h-24 flex items-center border-b border-gray-100 shadow-sm transition-all duration-300">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 w-full flex items-center justify-between">
-        
-        {/* Logo Section with refined white-background aesthetic */}
-        <div className="flex items-center gap-3 cursor-pointer group">
-          <div className="w-10 h-10 flex-shrink-0 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg shadow-slate-200 transition-transform group-hover:scale-105">
-            <svg viewBox="0 0 120 120" className="w-7 h-7">
-              <path d="M45,25 C20,25 20,95 45,95" fill="none" stroke="#F1361D" strokeWidth="12" strokeLinecap="round" />
-              <text x="48" y="78" fill="white" style={{ font: 'italic bold 58px Inter, sans-serif' }}>S</text>
-            </svg>
+    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+      {/* Top Utility Bar - White background with Contact Info */}
+      <div className="bg-white h-20 border-b border-gray-100 hidden md:block">
+        <div className="max-w-[1440px] mx-auto h-full px-6 flex items-center justify-between">
+          {/* Logo Section */}
+          <div 
+            className="cursor-pointer group" 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            <Logo />
           </div>
-          <div className="flex flex-col -gap-1">
-            <span className="text-xl font-black text-slate-900 tracking-tight leading-none">DILIJENT</span>
-            <span className="text-[10px] font-bold text-ds-red tracking-[0.2em] leading-none mt-1">SYSTEMS</span>
+
+          {/* Contact Details */}
+          <div className="flex items-center gap-8 text-[15px] font-medium text-slate-700">
+            <a href="tel:+15125754630" className="flex items-center gap-2 hover:text-ds-red transition-colors">
+              <svg className="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.47 5.47l.773-1.548a1 1 0 011.062-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              <span>+1 (512)-575-4630</span>
+            </a>
+            <a href="mailto:sales@dilijentsystems.com" className="flex items-center gap-2 hover:text-ds-red transition-colors">
+              <svg className="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <span>sales@dilijentsystems.com</span>
+            </a>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              <span>USA</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Desktop Horizontal Menu - Updated for White Background */}
-        <nav className="hidden lg:flex items-center gap-10 xl:gap-14">
-          {menuItems.map((item) => (
-            <div key={item.name} className="relative group">
-              <a 
-                href={item.href}
-                className={`flex items-center gap-2 text-[14px] font-extrabold tracking-[0.15em] transition-colors duration-200 ${
-                  activeSection === item.name ? 'text-slate-900' : 'text-slate-500 hover:text-ds-red'
-                }`}
-              >
-                {item.name}
-                {item.hasDropdown && (
-                  <svg 
-                    className={`w-3.5 h-3.5 mb-0.5 transition-transform duration-300 group-hover:rotate-180 ${activeSection === item.name ? 'text-ds-red' : 'text-slate-400'}`} 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="3.5" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-                )}
-              </a>
-              {/* Active Underline Indicator - Matches Red Theme */}
-              {activeSection === item.name && (
-                <div className="absolute -bottom-2 left-0 w-full h-[2.5px] bg-ds-red rounded-full animate-in fade-in zoom-in duration-300" />
+      {/* Main Navigation Bar - Dark background */}
+      <div className="bg-[#050505] h-16 flex items-center shadow-lg">
+        <div className="max-w-[1440px] mx-auto w-full px-6 flex items-center justify-between md:justify-center">
+          
+          {/* Mobile Logo */}
+          <div className="md:hidden flex items-center">
+             <div className="relative w-10 h-8">
+               <svg viewBox="0 0 140 120" className="w-full h-full">
+                <path d="M50,25 C25,25 25,95 50,95" fill="none" stroke="#E13D2D" strokeWidth="16" strokeLinecap="round" />
+                <path d="M75,30 L100,30 C110,30 110,48 100,48 L75,72 C65,72 65,90 75,90 L100,90" fill="none" stroke="#2B59C3" strokeWidth="16" strokeLinecap="round" />
+               </svg>
+             </div>
+             <span className="text-white font-bold text-sm tracking-tighter ml-1">DILIJENTSYSTEMS</span>
+          </div>
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center h-full">
+            {menuItems.map((item) => (
+              <div key={item.name} className="relative h-16 flex items-center group">
+                {/* Top indicator bar */}
+                <div className={`absolute top-0 left-0 w-full h-[4px] bg-ds-red transition-all duration-300 ${activeSection === item.name ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+                
+                <a 
+                  href={item.href}
+                  className={`px-8 h-full flex items-center gap-1.5 text-[14px] tracking-[0.1em] transition-all duration-300 ${
+                    activeSection === item.name 
+                      ? 'text-ds-red font-black scale-105' 
+                      : 'text-slate-400 font-bold hover:text-white'
+                  }`}
+                >
+                  {item.name}
+                  {item.hasDropdown && (
+                    <svg className={`w-4 h-4 mb-0.5 transition-colors duration-300 ${activeSection === item.name ? 'text-ds-red' : 'text-slate-500 group-hover:text-white'}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  )}
+                </a>
+              </div>
+            ))}
+          </nav>
+
+          {/* Mobile Toggle */}
+          <button 
+            className="md:hidden p-2 text-white hover:text-ds-red transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               )}
-            </div>
-          ))}
-        </nav>
-
-        {/* Mobile Toggle - Dark for Contrast */}
-        <button 
-          className="lg:hidden p-2 text-slate-900 hover:text-ds-red transition-colors"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Overlay Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 bg-slate-900/10 backdrop-blur-md z-[60] flex items-start justify-center p-6 animate-in fade-in duration-300">
+        <div className="md:hidden fixed inset-0 top-[112px] bg-slate-900/10 backdrop-blur-md z-[60] flex items-start justify-center p-6 animate-in fade-in duration-300">
           <div className="w-full animate-in slide-in-from-top-4 duration-500">
             <MenuCard 
-              title="Navigation Menu"
+              title="Navigation"
               items={menuItems.map(item => ({
                 name: item.name,
                 active: activeSection === item.name

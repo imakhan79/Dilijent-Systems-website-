@@ -3,6 +3,7 @@ import React from 'react';
 interface MenuCardItem {
   name: string;
   active?: boolean;
+  icon?: React.ReactNode;
 }
 
 interface MenuCardProps {
@@ -23,18 +24,25 @@ const MenuCard: React.FC<MenuCardProps> = ({ title, items, className = "" }) => 
         {items.map((item, index) => (
           <div 
             key={index} 
-            className={`group flex items-center justify-between py-4 px-2 transition-all duration-300 rounded-xl hover:bg-[#f9f9f9] cursor-pointer ${
+            className={`group flex items-center justify-between py-6 px-6 -mx-4 transition-all duration-200 ease-out rounded-xl hover:bg-[#f7f7f7] cursor-pointer ${
               index !== items.length - 1 ? 'border-b border-[#f5f5f5]' : ''
-            }`}
+            } hover:border-transparent`}
           >
-            <span className={`text-[16px] md:text-[17px] tracking-tight transition-all duration-300 ${
-              item.active ? 'font-bold text-black' : 'font-medium text-gray-700'
-            }`}>
-              {item.name}
-            </span>
+            <div className="flex items-center gap-4">
+              {item.icon && (
+                <div className={`flex-shrink-0 transition-colors duration-200 ${item.active ? 'text-ds-red' : 'text-slate-400 group-hover:text-ds-red'}`}>
+                  {item.icon}
+                </div>
+              )}
+              <span className={`text-[16px] md:text-[17px] tracking-tight transition-all duration-200 transform group-hover:translate-x-1 ${
+                item.active ? 'font-bold text-black' : 'font-medium text-gray-700'
+              }`}>
+                {item.name}
+              </span>
+            </div>
             
             {/* Green Check Icon Circle */}
-            <div className="flex-shrink-0 w-[22px] h-[22px] bg-[#22c55e] rounded-full flex items-center justify-center shadow-lg shadow-green-500/20 transform group-hover:scale-110 transition-transform">
+            <div className="flex-shrink-0 w-[22px] h-[22px] bg-[#22c55e] rounded-full flex items-center justify-center shadow-lg shadow-green-500/20 transform transition-all duration-200 group-hover:scale-110 group-hover:rotate-[360deg]">
               <svg 
                 className="w-3 h-3 text-white" 
                 fill="none" 
