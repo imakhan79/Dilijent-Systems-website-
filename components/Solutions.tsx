@@ -73,7 +73,7 @@ const Solutions: React.FC = () => {
                 </h4>
               </div>
 
-              {/* 2. Image Area with WHITE Logo Overlay on Dark Background */}
+              {/* 2. Image Area with Logo Overlay */}
               <div className="relative aspect-[16/10] overflow-hidden group">
                 <img 
                   src={post.image} 
@@ -81,17 +81,17 @@ const Solutions: React.FC = () => {
                   className="w-full h-full object-cover"
                 />
                 
-                {/* Logo Overlay - Updated to WHITE 'S' shape on dark background for contrast */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#111121]/95 px-4 py-1.5 rounded-md shadow-md flex items-center gap-2 border border-white/10">
+                {/* Logo Overlay - Consistent with new branding */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#111121]/95 px-4 py-1.5 rounded-md shadow-md flex items-center gap-1.5 border border-white/10">
                    <div className="w-6 h-5">
-                     <svg viewBox="0 0 140 120" className="w-full h-full">
-                      <path d="M50,25 C25,25 25,95 50,95" fill="none" stroke="#E13D2D" strokeWidth="16" strokeLinecap="round" />
-                      <path d="M75,30 L100,30 C110,30 110,48 100,48 L75,72 C65,72 65,90 75,90 L100,90" fill="none" stroke="#ffffff" strokeWidth="16" strokeLinecap="round" />
-                     </svg>
+                    <svg viewBox="0 0 140 120" className="w-full h-full">
+                      <path d="M60,20 C30,20 30,100 60,100 M60,20 L80,20" fill="none" stroke="#F1361D" strokeWidth="20" strokeLinecap="round" />
+                      <path d="M75,35 L105,35 C115,35 115,55 105,55 L85,65 C75,65 75,85 85,85 L115,85" fill="none" stroke="#ffffff" strokeWidth="20" strokeLinecap="round" />
+                    </svg>
                    </div>
-                   <div className="flex items-baseline">
-                     <span className="text-[11px] font-black text-white tracking-tighter">Dilijent</span>
-                     <span className="text-[11px] font-normal text-white tracking-tighter ml-0.5">Systems</span>
+                   <div className="flex items-center -ml-0.5">
+                     <span className="text-[11px] font-[900] text-white tracking-tighter">Dilijent</span>
+                     <span className="text-[11px] font-[400] text-white tracking-tighter">Systems</span>
                    </div>
                 </div>
               </div>

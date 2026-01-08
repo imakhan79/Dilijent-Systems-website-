@@ -6,16 +6,19 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-1 mb-6">
-              <div className="w-10 h-8">
-                <svg viewBox="0 0 140 120" className="w-full h-full">
-                  <path d="M50,25 C25,25 25,95 50,95" fill="none" stroke="#E13D2D" strokeWidth="16" strokeLinecap="round" />
-                  <path d="M75,30 L100,30 C110,30 110,48 100,48 L75,72 C65,72 65,90 75,90 L100,90" fill="none" stroke="#2B59C3" strokeWidth="16" strokeLinecap="round" />
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-[50px] h-[40px] relative">
+                <svg viewBox="0 0 140 120" className="absolute top-[1px] left-[1px] w-full h-full opacity-10">
+                  <path d="M60,20 C30,20 30,100 60,100 M60,20 L80,20" fill="none" stroke="#000" strokeWidth="18" strokeLinecap="round" />
+                </svg>
+                <svg viewBox="0 0 140 120" className="w-full h-full relative z-10">
+                  <path d="M60,20 C30,20 30,100 60,100 M60,20 L80,20" fill="none" stroke="#F1361D" strokeWidth="18" strokeLinecap="round" />
+                  <path d="M75,35 L105,35 C115,35 115,55 105,55 L85,65 C75,65 75,85 85,85 L115,85" fill="none" stroke="#2B59C3" strokeWidth="18" strokeLinecap="round" />
                 </svg>
               </div>
-              <div className="flex items-baseline text-slate-900">
-                <span className="text-xl font-black tracking-tighter">Dilijent</span>
-                <span className="text-xl font-light tracking-tighter">Systems</span>
+              <div className="flex items-center -ml-1 text-[#333333]">
+                <span className="text-xl font-[900] tracking-tighter">Dilijent</span>
+                <span className="text-xl font-[400] tracking-tighter">Systems</span>
               </div>
             </div>
             <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">

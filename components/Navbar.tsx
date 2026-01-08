@@ -17,28 +17,40 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   ];
 
   const Logo = ({ isDark = false }) => (
-    <div className="flex items-center gap-1">
-      <div className="relative w-12 h-10 flex items-center justify-center">
-        <svg viewBox="0 0 140 120" className="w-full h-full drop-shadow-md">
+    <div className="flex items-center gap-2">
+      <div className="relative w-[50px] h-[40px] flex items-center justify-center">
+        {/* Shadow layer for the Red D as seen in the logo image */}
+        <svg viewBox="0 0 140 120" className="absolute top-[2px] left-[2px] w-full h-full opacity-20 blur-[1px]">
           <path 
-            d="M50,25 C25,25 25,95 50,95" 
+            d="M60,20 C30,20 30,100 60,100 M60,20 L80,20" 
             fill="none" 
-            stroke="#E13D2D" 
-            strokeWidth="16" 
+            stroke="#000000" 
+            strokeWidth="18" 
             strokeLinecap="round" 
           />
+        </svg>
+        <svg viewBox="0 0 140 120" className="w-full h-full relative z-10">
+          {/* The Red "D" - curved stroke */}
           <path 
-            d="M75,30 L100,30 C110,30 110,48 100,48 L75,72 C65,72 65,90 75,90 L100,90" 
+            d="M60,20 C30,20 30,100 60,100 M60,20 L80,20" 
+            fill="none" 
+            stroke="#F1361D" 
+            strokeWidth="18" 
+            strokeLinecap="round" 
+          />
+          {/* The Blue "S" - blocky slanted shape */}
+          <path 
+            d="M75,35 L105,35 C115,35 115,55 105,55 L85,65 C75,65 75,85 85,85 L115,85" 
             fill="none" 
             stroke={isDark ? "#ffffff" : "#2B59C3"} 
-            strokeWidth="16" 
+            strokeWidth="18" 
             strokeLinecap="round" 
           />
         </svg>
       </div>
-      <div className="flex items-baseline">
-        <span className={`text-[26px] font-black tracking-tighter ${isDark ? 'text-white' : 'text-[#1A1A1A]'}`}>Dilijent</span>
-        <span className={`text-[26px] font-light tracking-tighter ${isDark ? 'text-white' : 'text-[#1A1A1A]'}`}>Systems</span>
+      <div className="flex items-center -ml-1">
+        <span className={`text-[28px] font-[900] tracking-tighter ${isDark ? 'text-white' : 'text-[#333333]'}`}>Dilijent</span>
+        <span className={`text-[28px] font-[400] tracking-tighter ${isDark ? 'text-white' : 'text-[#333333]'}`}>Systems</span>
       </div>
     </div>
   );
@@ -73,19 +85,19 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         </div>
       </div>
 
-      {/* Main Navigation Bar - Now WHITE background per request */}
+      {/* Main Navigation Bar */}
       <div className="bg-white h-16 flex items-center shadow-[0_1px_0_rgba(0,0,0,0.05)] border-b border-gray-100">
         <div className="max-w-[1440px] mx-auto w-full px-6 flex items-center justify-between md:justify-center">
           
           {/* Mobile Logo */}
           <div className="md:hidden flex items-center">
              <div className="relative w-10 h-8">
-               <svg viewBox="0 0 140 120" className="w-full h-full">
-                <path d="M50,25 C25,25 25,95 50,95" fill="none" stroke="#E13D2D" strokeWidth="16" strokeLinecap="round" />
-                <path d="M75,30 L100,30 C110,30 110,48 100,48 L75,72 C65,72 65,90 75,90 L100,90" fill="none" stroke="#2B59C3" strokeWidth="16" strokeLinecap="round" />
-               </svg>
+                <svg viewBox="0 0 140 120" className="w-full h-full">
+                  <path d="M60,20 C30,20 30,100 60,100 M60,20 L80,20" fill="none" stroke="#F1361D" strokeWidth="20" strokeLinecap="round" />
+                  <path d="M75,35 L105,35 C115,35 115,55 105,55 L85,65 C75,65 75,85 85,85 L115,85" fill="none" stroke="#2B59C3" strokeWidth="20" strokeLinecap="round" />
+                </svg>
              </div>
-             <span className="text-[#1A1A1A] font-bold text-sm tracking-tighter ml-1">DILIJENTSYSTEMS</span>
+             <span className="text-[#333333] font-black text-sm tracking-tighter ml-1">DilijentSystems</span>
           </div>
 
           <nav className="hidden md:flex items-center h-full">
