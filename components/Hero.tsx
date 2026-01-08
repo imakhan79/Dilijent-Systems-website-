@@ -11,79 +11,110 @@ const specialties = [
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-20 px-6 overflow-hidden bg-[#fbfbfb]">
-      {/* Dynamic Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-ds-red/5 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02]"></div>
+    <div className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-24 px-6 overflow-hidden bg-black">
+      {/* Background Layer */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=2000" 
+          alt="Office collaboration" 
+          className="w-full h-full object-cover opacity-30 grayscale"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black"></div>
+      </div>
+
+      {/* Decorative Diagonal Pattern (bottom right) */}
+      <div className="absolute bottom-[-5%] right-[-5%] w-[45%] h-[45%] opacity-15 pointer-events-none z-10">
+        <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="diagonal-stripe-combined" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="10" stroke="white" strokeWidth="1" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#diagonal-stripe-combined)" />
+        </svg>
       </div>
 
       <div className="relative z-20 max-w-[1440px] mx-auto text-center w-full flex flex-col items-center">
-        {/* Main Header Text - Matches Screenshot Layout */}
+        
+        {/* Previous Content: Main Header Text */}
         <div className="mb-12 animate-in fade-in slide-in-from-top-10 duration-1000">
-          <h1 className="text-5xl md:text-7xl lg:text-[100px] font-black text-[#333] leading-[1.1] tracking-tight uppercase">
+          <h1 className="text-4xl md:text-6xl lg:text-[84px] font-black text-white leading-[1.05] tracking-tight uppercase">
             <span className="text-[#F1361D]">TECHNOLOGY</span> BUILT RIGHT. <br />
             HEALTHCARE <span className="text-[#F1361D]">RCM</span> DONE BETTER.
           </h1>
-          <p className="mt-8 text-2xl md:text-4xl text-slate-700 font-bold max-w-5xl mx-auto leading-relaxed px-4">
-            Our Expertise Stands on Two Proven Pillars.
-          </p>
         </div>
 
-        {/* Horizontal Specialties Bar */}
-        <div className="w-full overflow-x-auto no-scrollbar mb-20 px-4 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300">
+        {/* Previous Content: Horizontal Specialties Bar */}
+        <div className="w-full overflow-x-auto no-scrollbar mb-16 px-4 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300">
           <div className="flex flex-nowrap md:flex-wrap items-center justify-start md:justify-center gap-4 py-2">
             {specialties.map((spec, idx) => (
               <div 
                 key={idx} 
-                className="flex items-center gap-3 bg-white border border-slate-100 px-6 py-4 rounded-2xl shadow-sm hover:shadow-md hover:border-ds-red/20 transition-all cursor-default group shrink-0"
+                className="flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-4 rounded-2xl shadow-sm backdrop-blur-sm hover:bg-white/10 transition-all cursor-default group shrink-0"
               >
                 <div className="text-[#F1361D] group-hover:scale-110 transition-transform">
                   {spec.icon}
                 </div>
-                <span className="text-sm font-extrabold text-[#333] whitespace-nowrap uppercase tracking-wider">{spec.name}</span>
+                <span className="text-xs font-black text-white whitespace-nowrap uppercase tracking-widest">{spec.name}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* The Two Pillars Grid */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto px-4 w-full">
+        {/* Updated Content: 'Two Proven Pillars' Header */}
+        <div className="mb-12 animate-in fade-in slide-in-from-top-4 duration-1000 delay-500">
+          <h2 className="text-2xl md:text-[36px] text-white font-bold tracking-tight">
+            Our Expertise Stands on Two Proven Pillars.
+          </h2>
+        </div>
+
+        {/* The Two Pillars Grid (Latest Replication) */}
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto px-4 w-full">
           
-          {/* Pillar 1: Software Development */}
-          <div className="hero-card rounded-[2.5rem] p-12 lg:p-16 flex flex-col items-center text-center animate-in fade-in slide-in-from-left-10 duration-1000 delay-500 group transition-all relative overflow-hidden">
-             <div className="absolute inset-0 bg-gradient-to-br from-ds-red/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-             <div className="relative z-10">
-                <div className="w-20 h-20 bg-ds-red rounded-2xl flex items-center justify-center mb-10 shadow-lg shadow-ds-red/20 group-hover:scale-110 transition-transform">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          {/* Pillar 1: Software Development Services */}
+          <div className="bg-slate-900/60 backdrop-blur-2xl border border-white/10 rounded-2xl p-10 lg:p-12 flex flex-col items-center text-center animate-in fade-in slide-in-from-left-6 duration-1000 delay-700 group hover:bg-slate-900/80 transition-all h-full shadow-2xl">
+             <div className="relative z-10 w-full flex flex-col items-center">
+                {/* Blue Icon Container */}
+                <div className="w-16 h-16 bg-gradient-to-br from-[#4f86f7] to-[#2B59C3] rounded-xl flex items-center justify-center mb-8 shadow-lg shadow-blue-500/20 transform group-hover:scale-105 transition-transform">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-black text-slate-900 mb-6 tracking-tight uppercase">Custom Software</h3>
-                <p className="text-slate-600 text-lg font-medium mb-10 leading-relaxed">
-                  Full-stack Engineering, AI Integration & <br />Cloud-Native Architecture.
+                
+                <h3 className="text-[22px] md:text-2xl font-bold text-white mb-3 tracking-tight">
+                  Software Development Services
+                </h3>
+                
+                <p className="text-white/70 text-base md:text-lg font-medium mb-10">
+                  Custom App | AI/ML | Cloud
                 </p>
-                <button className="bg-[#111] hover:bg-black text-white px-10 py-5 rounded-2xl font-bold transition-all shadow-xl uppercase tracking-widest text-sm">
-                  Build Your System
+                
+                <button className="w-full bg-[#F1361D] hover:bg-[#d42d18] text-white py-4 rounded-xl font-bold transition-all shadow-xl shadow-red-600/20 text-base mt-auto">
+                  Get Quote for Software Dev.
                 </button>
              </div>
           </div>
 
-          {/* Pillar 2: Healthcare RCM */}
-          <div className="hero-card rounded-[2.5rem] p-12 lg:p-16 flex flex-col items-center text-center animate-in fade-in slide-in-from-right-10 duration-1000 delay-500 group transition-all relative overflow-hidden">
-             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-             <div className="relative z-10">
-                <div className="w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center mb-10 shadow-lg shadow-blue-600/20 group-hover:scale-110 transition-transform">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          {/* Pillar 2: Medical Billing & RCM Services */}
+          <div className="bg-slate-900/60 backdrop-blur-2xl border border-white/10 rounded-2xl p-10 lg:p-12 flex flex-col items-center text-center animate-in fade-in slide-in-from-right-6 duration-1000 delay-700 group hover:bg-slate-900/80 transition-all h-full shadow-2xl">
+             <div className="relative z-10 w-full flex flex-col items-center">
+                {/* Blue Icon Container */}
+                <div className="w-16 h-16 bg-gradient-to-br from-[#4f86f7] to-[#2B59C3] rounded-xl flex items-center justify-center mb-8 shadow-lg shadow-blue-500/20 transform group-hover:scale-105 transition-transform">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-black text-slate-900 mb-6 tracking-tight uppercase">Healthcare RCM</h3>
-                <p className="text-slate-600 text-lg font-medium mb-10 leading-relaxed">
-                  Revenue Integrity, Certified Coding & <br />Aggressive AR Recovery.
+                
+                <h3 className="text-[22px] md:text-2xl font-bold text-white mb-3 tracking-tight">
+                  Medical Billing & RCM Services
+                </h3>
+                
+                <p className="text-white/70 text-base md:text-lg font-medium mb-10">
+                  Billing | Coding | AR | Credentialing
                 </p>
-                <button className="bg-ds-red hover:bg-[#d42d18] text-white px-10 py-5 rounded-2xl font-bold transition-all shadow-xl uppercase tracking-widest text-sm">
-                  Maximize Revenue
+                
+                <button className="w-full bg-[#F1361D] hover:bg-[#d42d18] text-white py-4 rounded-xl font-bold transition-all shadow-xl shadow-red-600/20 text-base mt-auto">
+                  Get Quote for RCM
                 </button>
              </div>
           </div>

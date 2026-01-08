@@ -66,7 +66,6 @@ const Services: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#111] mb-6">Execution at Every Level</h2>
           <p className="text-gray-600 text-lg font-medium leading-relaxed">
             Our teams are dedicated to delivering precision-engineered solutions across two primary domains. 
-            Select a service to learn how we verify success.
           </p>
         </div>
 
@@ -77,10 +76,10 @@ const Services: React.FC = () => {
               <div className="inline-block p-4 bg-ds-red/5 rounded-2xl mb-4">
                  <svg className="w-10 h-10 text-ds-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-2 uppercase tracking-tight">Technology Solutions</h3>
+              <h3 className="text-2xl font-black text-gray-900 mb-2 uppercase tracking-tight">Software Development</h3>
               <p className="text-gray-500 font-bold italic mb-4">Verified agile delivery and engineering excellence.</p>
               <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                Empower your business with future-proof applications. Our engineering team specializes in architecting high-performance, secure, and scalable digital products that drive operational efficiency and market leadership.
+                Empower your business with future-proof applications. Our engineering team specializes in architecting high-performance, secure, and scalable digital products.
               </p>
             </div>
             <MenuCard items={techServices} className="lg:mr-0" />
@@ -91,10 +90,10 @@ const Services: React.FC = () => {
                 <div className="inline-block p-4 bg-ds-red/5 rounded-2xl mb-4">
                    <svg className="w-10 h-10 text-ds-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
                 </div>
-                <h3 className="text-2xl font-black text-gray-900 mb-2 uppercase tracking-tight">Healthcare RCM</h3>
+                <h3 className="text-2xl font-black text-gray-900 mb-2 uppercase tracking-tight">Medical Billing & RCM</h3>
                 <p className="text-gray-500 font-bold italic mb-4">Maximum revenue capture with zero compliance risk.</p>
                 <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                  Transform your financial operations with precision-driven revenue cycle management. We combine industry-leading expertise with advanced analytics to maximize your revenue capture and minimize denials.
+                  Transform your financial operations with precision-driven revenue cycle management. We combine industry-leading expertise with advanced analytics.
                 </p>
               </div>
             <MenuCard items={rcmServices} className="lg:ml-0" />

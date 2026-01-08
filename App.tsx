@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import CoreServices from './components/CoreServices';
 import Services from './components/Services';
 import Features from './components/Features';
 import Solutions from './components/Solutions';
@@ -50,6 +51,11 @@ const App: React.FC = () => {
 
         <section id="about">
           <About />
+        </section>
+
+        {/* Replicated Core Services Section */}
+        <section id="core-professional-services">
+          <CoreServices />
         </section>
         
         <section id="services">
